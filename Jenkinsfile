@@ -36,7 +36,7 @@ pipeline {
                sh '''
                docker stop flask-app || true
                docker rm flask-app || true
-               docker run -d -p 7000:7000 --name flask-app $IMAGE_NAME:$TAG
+               docker run -d -p 7800:7800 --name flask-app $IMAGE_NAME:$TAG
                
                '''
          }
