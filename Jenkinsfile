@@ -46,9 +46,9 @@ pipeline {
          steps {
            dir('terraform') {
               sh '''
-                 'terraform init -input=false'
-                 'terraform destroy -auto-approve || true'
-                 'terraform apply -auto-approve tfplan'
+                 '/snap/bin/terraform init -input=false'
+                 '/snap/bin/terraform destroy -auto-approve || true'
+                 '/snap/bin/terraform apply -auto-approve tfplan'
               
               '''
            }  
