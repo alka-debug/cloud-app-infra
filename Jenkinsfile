@@ -42,4 +42,15 @@ pipeline {
          }
        }
    }
+
+   stage('Provision Infrastructure (Terraform)') {
+      steps {
+         dir('terraform') {
+             sh 'terraform init'
+             sh 'terraform plan -out=tfplan'
+             sh 'terraform apply -auto-approve tfplan'
+         }
+      }
+   }
+ }
 }
