@@ -2,7 +2,7 @@ pipeline {
    agent any
  
    environment {
-       IMAGE_NAME = "alka-cloud/flask-cloud-app"
+       IMAGE_NAME = "alka-2212/flask-cloud-app"
        TAG = "latest"
    }
    
@@ -23,10 +23,10 @@ pipeline {
 
       stage('Push to Docker Hub') {
         steps {
-           withCredentials([usernamePassword(credentialsId: 'docker hub', passwordVariable: 'Docker_pass',
+         withCredentials([usernamePassword(credentialsId: 'docker hub', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER' )]) {
                sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                sh 'docker push $IMAGE_NAME:$TAG'
-           }
+         }
 
         }
       }
