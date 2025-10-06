@@ -45,9 +45,9 @@ pipeline {
       stage('Provision Infrastructure (Terraform)') {
          steps {
            dir('terraform') {
-              sh 'terraform init'
-              sh 'terraform plan -out=tfplan'
-              sh 'terraform destroy -auto-approve'
+              sh '''
+              sh 'terraform init -input=false'
+              sh 'terraform destroy -auto-approve || true'
               sh 'terraform apply -auto-approve tfplan'
            }
          }
