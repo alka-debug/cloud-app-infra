@@ -49,7 +49,9 @@ pipeline {
               sh 'terraform init -input=false'
               sh 'terraform destroy -auto-approve || true'
               sh 'terraform apply -auto-approve tfplan'
-           }
+              
+              '''
+           }  
          }
       }
    }
