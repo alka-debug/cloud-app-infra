@@ -28,7 +28,7 @@ pipeline {
                sh 'docker push $IMAGE_NAME:$TAG'
          }
 
-        }
+       }
       }
       
       stage('Deploy') {
@@ -41,8 +41,7 @@ pipeline {
                '''
          }
        }
-   }
-
+   
       stage('Provision Infrastructure (Terraform)') {
          steps {
            dir('terraform') {
@@ -52,5 +51,5 @@ pipeline {
            }
          }
       }
+   }
 }
-
