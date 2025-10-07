@@ -46,9 +46,9 @@ pipeline {
          steps {
            dir('terraform') {
               sh '''
-                 '/usr/local/bin/terraform init -input=false'
-                 '/usr/local/bin/terraform destroy -auto-approve || true'
-                 '/usr/local/bin/terraform apply -auto-approve tfplan'
+                 'terraform init -input=false'
+                 'terraform destroy -auto-approve || true'
+                 'terraform apply -auto-approve tfplan'
               
               '''
            }  
