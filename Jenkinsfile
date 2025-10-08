@@ -48,6 +48,7 @@ pipeline {
               sh '''
                  /usr/local/bin/terraform init -input=false
                  /usr/local/bin/terraform plan -out=tfplan
+                 docker rm -f flask-app || true
                  /usr/local/bin/terraform destroy -auto-approve || true
                  /usr/local/bin/terraform apply -auto-approve 
               
