@@ -23,5 +23,5 @@ resource "docker_container" "flask_container" {
   lifecyle {
    prevent_destroy = false
   }
-  depeds_on = [depcker_image.flask_app]
+  depends_on = [docker_image.flask_app]
 }
