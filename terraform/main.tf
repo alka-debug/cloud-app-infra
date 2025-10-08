@@ -18,7 +18,7 @@ resource "docker_container" "flask_container" {
   restart       = "unless-stopped"
   ports {
        internal = 7000
-       external = 7000
+       external = 7800
   }
   lifecycle {
    prevent_destroy = false
