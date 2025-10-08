@@ -12,10 +12,11 @@ resource "docker_image" "flask_app" {
  keep_locally   = false
 }
 resource "docker_container" "flask_container" {
-  name  = "flask-app"
-  image = docker_image.flask_app.name
-  must_run = true
-  restart = "unless-stopped"
+  name          = "flask-app"
+  image         = docker_image.flask_app.name
+  must_run      = true
+  force_remove  = true
+  restart       = "unless-stopped"
   ports {
        internal = 7000
        external = 7000
