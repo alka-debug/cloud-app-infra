@@ -20,7 +20,7 @@ resource "docker_container" "flask_container" {
        internal = 7000
        external = 7000
   }
-  lifecyle {
+  lifecycle {
    prevent_destroy = false
   }
   depends_on = [docker_image.flask_app]
